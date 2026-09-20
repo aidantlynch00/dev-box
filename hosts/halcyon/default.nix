@@ -1,15 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
-
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
+    ./packages.nix
+    ./users.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.limine.enable = true;
   boot.loader.limine.biosDevice = "nodev";
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,12 +18,10 @@
   services.printing.enable = true;
 
   # Enable sound.
-  services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -85,4 +79,3 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
 }
-

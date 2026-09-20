@@ -4,38 +4,40 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
 
   boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/root";
-      fsType = "ext4";
-    };
-
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a30d47ac-02af-4e93-ab0a-0a88be5d2860";
-
-  fileSystems."/home" =
-    { device = "/dev/mapper/home";
-      fsType = "ext4";
-    };
-
-  boot.initrd.luks.devices."home".device = "/dev/disk/by-uuid/614152cb-ca21-4d40-93ee-84961707f84c";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/C53E-EC2D";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
-
   boot.initrd.luks.devices."swap".device = "/dev/disk/by-label/NIXCRYPTSWAP";
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-label/NIXCRYPTROOT";
+  boot.initrd.luks.devices."home".device = "/dev/disk/by-label/NIXCRYPTHOME";
 
-  swapDevices =
-    [ { device = "/dev/mapper/swap"; }
-    ];
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/NIXBOOT";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  fileSystems."/" = {
+    device = "/dev/mapper/root";
+    fsType = "ext4";
+  };
+
+
+  fileSystems."/home" = {
+    device = "/dev/mapper/home";
+    fsType = "ext4";
+  };
+
+  swapDevices = [
+    { device = "/dev/mapper/swap"; }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   virtualisation.virtualbox.guest.enable = true;
