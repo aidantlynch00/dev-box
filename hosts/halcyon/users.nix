@@ -34,6 +34,7 @@ in
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     ignoreShellProgramCheck = true;
+    shell = shell;
   };
 
   nix.settings.allowed-users = [ "alynch" ];
