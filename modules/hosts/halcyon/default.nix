@@ -5,7 +5,7 @@
       inherit inputs;
     };
     modules = with self.nixosModules; [
-      boot
+      limine
       core
       halcyonConfiguration
       alynch
