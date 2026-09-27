@@ -4,10 +4,14 @@
     specialArgs = {
       inherit inputs;
     };
+
     modules = with self.nixosModules; [
+      ./_hardware.nix
+      halcyonConfiguration
       limine
       core
-      halcyonConfiguration
+      desktop
+      wayland
       alynch
     ];
   };
