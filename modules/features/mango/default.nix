@@ -1,7 +1,6 @@
 { inputs, ... }:
 {
-  flake.nixosModules.mango = { pkgs, ... }:
-  {
+  flake.nixosModules.mango = {
     imports = [ inputs.mango.nixosModules.mango ];
     programs.mango = {
       enable = true;

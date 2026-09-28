@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.nixosModules.security = { inputs, pkgs, ... }:
   {

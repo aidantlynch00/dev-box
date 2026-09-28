@@ -1,7 +1,5 @@
-{ ... }:
 {
-  flake.nixosModules.halcyonConfiguration = { ... }:
-  {
+  flake.nixosModules.halcyonConfiguration = {
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.limine.efiSupport = true;
 

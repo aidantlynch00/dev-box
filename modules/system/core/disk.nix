@@ -1,4 +1,3 @@
-{ ... }:
 {
   flake.nixosModules.disk = { pkgs, ... }:
   {

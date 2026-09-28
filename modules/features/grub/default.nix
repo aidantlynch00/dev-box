@@ -1,7 +1,5 @@
-{ ... }:
 {
-  flake.nixosModules.grub = { ... }:
-  {
+  flake.nixosModules.grub = {
     boot.loader.grub.enable = true;
   };
 }
