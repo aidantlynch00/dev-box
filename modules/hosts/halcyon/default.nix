@@ -10,6 +10,8 @@
       halcyonConfiguration
       limine
       core
+      bluetooth
+      nvidia
       desktop
       wayland
       alynch
