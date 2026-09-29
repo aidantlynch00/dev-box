@@ -1,8 +1,7 @@
 {
   flake.nixosModules.power = { pkgs, ... }:
   {
-    environment.systemPackages = with pkgs; [
-      upower
-    ];
+    services.power-profiles-daemon.enable = true;
+    services.upower.enable = true;
   };
 }

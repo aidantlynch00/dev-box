@@ -1,3 +1,4 @@
+{ self, ... }:
 {
   flake.nixosModules.wayland = { pkgs, ... }:
   {

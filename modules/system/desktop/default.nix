@@ -6,8 +6,7 @@
       time
       media
       printing
-      clipboard
-      screenshot
+      notifications
     ];
 
     services.libinput.enable = true;

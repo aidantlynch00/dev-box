@@ -6,6 +6,6 @@
       powerOnBoot = true;
       # show device battery
       settings.General.Experimental = true;
-    }
+    };
   };
 }
