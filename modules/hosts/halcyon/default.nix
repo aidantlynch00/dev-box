@@ -1,20 +1,13 @@
-{ inputs, self, ... }:
+{ inputs, ... }:
 {
   flake.nixosConfigurations.halcyon = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs;
     };
 
-    modules = with self.nixosModules; [
+    modules = [
       ./_hardware.nix
-      halcyonConfiguration
-      limine
-      core
-      bluetooth
-      nvidia
-      desktop
-      wayland
-      alynch
+      ./_configuration.nix
     ];
   };
 }
