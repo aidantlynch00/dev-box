@@ -8,13 +8,6 @@
     modules = with self.nixosModules; [
       ./_hardware.nix
       halcyonConfiguration
-      limine
-      core
-      bluetooth
-      nvidia
-      desktop
-      wayland
-      alynch
     ];
   };
 }
