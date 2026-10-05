@@ -10,7 +10,6 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
     };
     mango = {
       url = "github:mangowm/mango";

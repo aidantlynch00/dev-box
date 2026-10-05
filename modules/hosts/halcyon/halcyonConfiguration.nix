@@ -8,6 +8,8 @@
       nvidia
       desktop
       wayland
+      mango
+      noctalia
       alynch
     ];
 
