@@ -8,5 +8,8 @@
       options = "--delete-older-than 30d";
       persistent = true;
     };
+
+    nix.settings.auto-optimise-store = true;
+    nix.optimise.automatic = true;
   };
 }
