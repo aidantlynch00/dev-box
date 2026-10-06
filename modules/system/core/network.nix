@@ -6,6 +6,8 @@
 
     environment.systemPackages = with pkgs; [
       bluetui
+      dnsutils
+      inetutils
       iputils
       netcat-gnu
       socat
