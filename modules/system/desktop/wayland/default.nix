@@ -7,7 +7,5 @@
       clipboard
       screenshots
     ];
-
-    xdg.portal.wlr.enable = true;
   };
 }
