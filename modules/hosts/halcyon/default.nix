@@ -11,7 +11,7 @@
     ];
   };
 
-  flake.nixosModules.halcyonConfiguration = {
+  flake.nixosModules.halcyonConfiguration = { lib, pkgs, ... }: {
     imports = with self.nixosModules; [
       limine
       core
@@ -22,6 +22,16 @@
       mango
       alynch
     ];
+
+    home-manager.users.alynch = {
+      imports = with inputs.dev-env.homeModules; [
+        alynch
+        full
+        halcyon
+      ];
+
+      nix.package = lib.mkForce pkgs.nix;
+    };
 
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.limine.efiSupport = true;

@@ -13,17 +13,5 @@
     };
 
     nix.settings.allowed-users = [ "alynch" ];
-
-    home-manager.users.alynch = {
-      home.packages = with pkgs; [
-        git
-        vim
-      ];
-      home = {
-        username = "alynch";
-        homeDirectory = "/home/alynch";
-        stateVersion = "26.05";
-      };
-    };
   };
 }
