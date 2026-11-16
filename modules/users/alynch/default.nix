@@ -9,7 +9,6 @@
         "wheel"
         "networkmanager"
       ];
-      shell = pkgs.bash;
     };
 
     nix.settings.allowed-users = [ "alynch" ];

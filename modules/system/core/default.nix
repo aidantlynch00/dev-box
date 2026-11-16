@@ -3,7 +3,6 @@
   flake.nixosModules.core = { inputs, pkgs, ... }:
   {
     imports = with self.nixosModules; [
-      inputs.home-manager.nixosModules.home-manager
       power
       disk
       monitoring
