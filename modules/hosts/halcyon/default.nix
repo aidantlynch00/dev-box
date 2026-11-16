@@ -14,6 +14,7 @@
   flake.nixosModules.halcyonConfiguration = { lib, pkgs, ... }: {
     imports = with self.nixosModules; [
       limine
+      plymouth
       core
       bluetooth
       nvidia
