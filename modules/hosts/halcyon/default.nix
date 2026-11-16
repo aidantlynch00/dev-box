@@ -17,6 +17,7 @@
       core
       bluetooth
       nvidia
+      ly
       desktop
       wayland
       mango
