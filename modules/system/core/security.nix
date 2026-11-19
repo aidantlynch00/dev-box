@@ -1,10 +1,8 @@
 {
   flake.nixosModules.security = { inputs, pkgs, ... }:
   {
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
+    programs.gnupg.agent.enable = true;
+    programs.ssh.startAgent = true;
 
     security.pki.caCertificateBlacklist = [
       "Comodo AAA Services root"
